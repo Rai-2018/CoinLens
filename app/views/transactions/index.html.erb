@@ -1,0 +1,35 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+<% provide(:title, "Portfolio") %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<h1><b>Current Holdings</b></h1>
+	<div class = "row">
+		<div class="column side1">
+			<div align="left">
+				<%= link_to 'New Coin', new_user_transaction_path, :class => "btn btn-primary"%> 
+			</div>
+			<br>
+				<ul id="coin-list">
+					<table class='table'>
+						<% @transactions.each do |t| %>
+							<tr>
+								<td>
+									<b><%= Coin.find(t.coin_id).name %></b>
+								</td>
+								<td>
+									<%= link_to 'Show', user_transaction_path(@user, t), :class => "btn btn-primary"%>
+									<%= link_to 'Edit', edit_user_transaction_path(@user, t), :class => "btn btn-warning"%>
+									<%= link_to 'Delete', user_transaction_path(@user, t), :method => :delete,:class => "btn btn-danger" %>
+								</td>
+							</tr>
+						<%end%>
+					</table>
+				</ul>
+		</div>
+		<div class="column middle1 text-center">
+			<%= pie_chart @txarray , donut:true%>
+			<b><p>Total: $<%=@rounded_total%></b></p>
+		</div>
+	</div>
+
+	

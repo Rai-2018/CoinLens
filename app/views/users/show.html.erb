@@ -1,0 +1,6 @@
+<% provide(:title, @user.name) %>
+<h1>Dashboard</h1>
+	<p id="navigate-dash">
+		<center><%= link_to "Go to your portfolio", user_transactions_path(@user) %></center>
+	</p>
+

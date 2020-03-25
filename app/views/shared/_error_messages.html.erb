@@ -1,0 +1,17 @@
+<% if @user.errors.any? %>
+	<div id="error_explanation">
+		<div class="alert alert-danger">
+			<div id="error_alert">
+			Registration failed due to <%= pluralize(@user.errors.count, "error") %>:
+			<!-- uses Ruby pluralize helper to notify user of any errors -->
+			</div>
+		</div>
+		<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+		<!-- for each error message -->
+			<li><%= msg %></li>
+			<!-- list error message -->
+		<% end %>
+		</ul>
+	</div>
+<% end %>
