@@ -11,8 +11,22 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require rails-ujs
-//= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+//= require chartkick
+
+//const symbolList = require('cryptocurrencies');
+
+
+//'use strict';
+
+//module.exports = nameList;
+//module.exports.names = () => Object.keys(nameList);
+
+//a = symbolList.name();
+
+//console.log(a)

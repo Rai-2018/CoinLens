@@ -1,0 +1,40 @@
+// Place all the styles related to the topics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.post {
+	width:100%; 
+	padding:5px;
+	margin:5px;
+	background-color:lightyellow;
+}
+
+.post-user {
+	margin-bottom:2px;
+}
+
+.post-content {
+	
+}
+
+.post-option {
+	margin-top:2px
+}
+
+
+table {
+    font-family: arial, sans-serif;
+   
+    width: 100%;
+    border-radius:10px;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 25px;
+    border: 4px solid #dddddd;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 15px;
+}
+

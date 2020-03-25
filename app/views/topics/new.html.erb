@@ -1,0 +1,9 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_for @topic, :url => { :controller => 'topics', :action => 'create'} do |f| %>
+			<%= f.label :name, "Topic Title" %>
+			<%= f.text_field :name %>
+			<%= f.submit "Create New Topic" %>
+		<% end %>
+	</div>
+</div>

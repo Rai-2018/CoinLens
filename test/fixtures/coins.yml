@@ -1,9 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  symbol: MyString
-
-two:
-  name: MyString
-  symbol: MyString
+testcoin:
+  name: Bitcoin
+  amount: 4444
+  user_id: 1

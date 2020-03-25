@@ -1,0 +1,117 @@
+#d_left{
+	width: 45%;
+	float: left;
+}
+#d_right{
+	width: 45%;
+	float: right;
+}
+#d_rightDiv{
+	width: 500px;
+	height: 80px;
+	background-color: #ffffff;
+	border-radius: 5px;
+	text-align: left;
+	margin: auto;
+}
+span{
+	font-weight: bold;
+	color: #cdf230;
+	font-size: 40px;
+}
+#log{
+	font-size: 12px;
+	color: #111111;
+}
+img {
+	height: 300px;
+	width: 400px;
+	box-shadow: rgba(0,0,0,0.2) 10px 10px;
+}
+#d_footer{
+	clear: both;
+	position: relative;
+	bottom: -20px;
+	height: 50px;
+	background-color: #3c4543;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: 2px solid #aaacaf;
+}
+#d_footer_b{
+
+	clear: both;
+	position: relative;
+	bottom: -20px;
+	height: 25px;
+	background-color: #ffffff;
+
+}
+#d_font{
+	font-family: serif;
+	font-size: 16px;
+	color: #062466;
+}
+#h_border{
+	width: 600px;
+	height: 110px;
+	border: 1px solid #111111;
+	border-radius: 5px;
+	text-align: center;
+	margin: auto;
+	background-color: #111111;
+}
+.h_font{
+	font-family: sans-serif;
+	font-size: 40px;
+	color: #e59d20;
+}
+.p_font{
+	font-family: cursive;
+	font-size: 16px;
+	color: black;
+	text-align: left;
+}
+.f_font{
+	font-family: serif;
+	font-size: 12px;
+	color: black;
+}
+.fp_font{
+	font-family: serif;
+	font-size: 18px;
+	color: #495eaa;
+}
+.c_font{
+	font-family: serif;
+	font-size: 18px;
+	color: #111111;
+	font-weight: bold;
+}
+h3{
+	font-weight: bold;
+}
+h4{
+	font-weight: bold;
+
+}
+h3 p{
+	font-family: Garamond, serif;
+	font-size: 12px;
+}
+#fp_border{
+	border: 1px dashed #ffffff;
+	border-radius: 5px;
+}
+#fp_border_b{
+	border: 5px solid #111111;
+	border-radius: 5px;
+}
+ol{
+	font-size: 16px;
+}
+#abt_space{
+	text-align: center;
+}

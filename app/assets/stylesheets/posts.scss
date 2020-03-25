@@ -1,0 +1,27 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.post {
+	all:unset;
+	width:100%; 
+	display:table;
+}
+
+.post span {
+	padding:5px; 
+	border:3px solid #eee; margin:0;
+}
+
+.post span.left {
+	width:150px; 
+	background:#eee; 
+	border:3px solid #eee; 
+	display:table-cell;
+}
+
+.post span.right { 
+	border:3px solid #eee; 
+	display:table-cell; 
+	background-color : lightyellow;
+	padding: 15px;
+}

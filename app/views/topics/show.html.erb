@@ -1,0 +1,38 @@
+<% provide :title, @topic.name %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<% for post in @topic.posts %>
+				<div class="post">
+					<div class="post-user">
+					  	<p><b>By: <%= link_to post.user.name, user_url(post.user) %></b></p>
+					</div>
+<<<<<<< HEAD
+				    <div class="post-content"><p><b>Message:</b> <%= post.content %></p></div>
+=======
+				    <div class="post-content"><p><b>Message:  </b><%= post.content %></p></div>
+				    <br>
+>>>>>>> 84f1b4c37f9705cab85ae41a9e877b7a846c747a
+					<div class="post-options">
+						<% if current_user != nil and current_user.id == post.user_id # or current_user.is_admin?) %>
+						  	<b><%= link_to "Edit", edit_forum_topic_post_path(:forum_id => @topic.forum_id, :topic_id => @topic.id, :post_id => post.id) %> </b>| 
+						  	<b><%= link_to "Delete", forum_topic_post_path(:forum_id => @topic.forum_id, :topic_id => @topic.id, :post_id => post.id), :method => :delete, data: { confirm: 'Are you sure you want to delete this topic?' } %></b>
+						<% end %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+<br>
+
+<p>
+  <% if current_user != nil %>
+ 	 <%= link_to "Reply", new_forum_topic_post_path(:forum_id => @topic.forum_id, :topic_id => @topic.id) , :class => "btn btn-primary"%> |
+  <% end %>
+  <% if current_user != nil and current_user.id == @topic.user_id # or current_user.is_admin?), :class => "btn btn-primary" %>
+  	<%= link_to "Destroy Topic", forum_topic_path, :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-primary" %> |
+  <% end %>
+  <%= link_to "View All Topics", forum_path(@topic.forum_id), :class => "btn btn-primary" %> |
+</p>

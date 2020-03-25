@@ -1,0 +1,31 @@
+<% provide(:title, @forum.name) %>
+ 
+<table>
+  <tr>
+    <th width="60%"><font size="5">Topic Title</font></th>
+    <th width="10%"><font size="5">Replies</font></th>
+    <th width="30%"><font size="5">Last Post</font></th>
+  </tr>
+  <% for topic in @forum.topics %>
+    <tr>
+      <td><h4><b><%= link_to topic.name, forum_topic_path(:topic_id => topic.id, :forum_id => @forum.id) %></b></h4>
+      <td><%= topic.posts.count %></td>
+      <td class="right"><%= distance_of_time_in_words_to_now topic.last_post_at %> ago by <%= link_to topic.user.name, "/users/#{topic.last_post_id}" %>
+      </td>
+      <% if current_user != nil and current_user.id == topic.user_id # or current_user.is_admin? %>
+        <td>
+          <%= link_to "Destroy", forum_topic_path(:forum_id => @forum.id, :topic_id => topic.id), :method => :delete, data: { confirm: 'Are you sure you want to delete this post?' } ,:class => "btn btn-primary"%>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 84f1b4c37f9705cab85ae41a9e877b7a846c747a
+<br>
+<% if current_user != nil %>
+  <%= link_to "New Topic", new_forum_topic_path(:forum_id => @forum.id),:class => "btn btn-primary" %> |
+<% end %>
+<%= link_to "Back to Forums", forums_path ,:class => "btn btn-primary"%>

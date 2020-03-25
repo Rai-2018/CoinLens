@@ -1,0 +1,10 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_for @post, :url => { :controller => 'posts', :action => 'update'} do |f| %>
+			<%= f.label :content, "Content" %>
+			<%= f.text_area :content %>
+			<%= f.hidden_field(:post_id, value: @post.id) %>
+			<%= f.submit "Update" %>
+		<% end %>
+	</div>
+</div>

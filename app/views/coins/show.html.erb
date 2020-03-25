@@ -1,0 +1,57 @@
+
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+<html>
+	<body>
+	<div class="header">
+	<h1><% provide(:title, @coin.name) %></h1>
+	<h1><%= @coin.name %> (<%= @response[0]["symbol"] %>)</h1>
+	</div>
+
+
+	<div class = "row">
+		<div class="column side">
+			<ul id="coin-info">
+				<li>Rank: <%= @response[0]["rank"] %></li>
+				<li>Price (USD): <%= @response[0]["price_usd"] %></li>
+				<li>24H Change: <%= @response[0]["percent_change_24h"] %>%</li>
+				<li>Current holdings: <%= @coin.amount%></li>
+				<li>Total value: <%= @value %></li>
+			</ul>
+			<p>
+				<%= link_to 'Back to index', :controller => 'coins', :action => 'index' %>
+			</p>
+
+			<style >
+				div.tab-content{
+					width = 100%
+				}
+			</style>
+		</div>
+	
+
+		<div class="column  middle">
+			<div class = "container">
+				<ul class = "nav nav-tabs">
+					<li class = "active"><a data-toggle = "tab" href="#Weekly">Weekly</a></li>
+					<li><a data-toggle = "tab" href="#Hourly">Hourly</a></li>
+				</ul>
+
+				<div class = "tab-content">
+					<div id = "Weekly" class = "tab-pane fade in active"">
+						<%= line_chart @arraydate,width: "800px", height: "500px" %>
+					</div>
+					<div id = "Hourly"  class = "tab-pane fade">
+						<%= line_chart @arraydate1,width: "800px", height: "500px"%>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>
+
+
+

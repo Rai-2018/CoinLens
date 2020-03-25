@@ -1,3 +1,47 @@
-// Place all the styles related to the Coins controller here.
+// Place all the styles related to the coins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#coin-list li {
+}
+
+#coin-info li {
+}
+
+
+.header {
+    padding: 20px;
+    text-align: center;
+}
+
+
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.column.side {
+    width: 25%;
+}
+
+.column.middle {
+    width: 75%;
+}
+.column.side1 {
+    width: 50%;
+}
+
+.column.middle2 {
+    width: 50%;
+}
+
+table {
+    border-collapse: collapse;
+    border: 10px solid transparent
+}
+
+tab-content{
+	width: 75%;
+}

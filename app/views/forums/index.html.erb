@@ -1,0 +1,37 @@
+  
+    <table>
+      <tr>
+        <th width="70%"><font size="5">Forum</font></th>
+        <th width="30%"><font size="5">Last Post</font></th>
+        <% if (current_user != nil and current_user.is_admin?) %><th>Actions</th><% end %>
+      </tr>
+      <% for forum in @forums %>
+          <tr>
+            <td>
+              <h4><b><%= link_to h(forum.name), forum %></b></h4>
+              <small><%= forum.topics.count %> topics</small>
+              <br/>
+              <b><%=h forum.description %></b>
+              <br>
+            </td>
+            <td class="right">
+              <% if forum.most_recent_post %><%= distance_of_time_in_words_to_now forum.most_recent_post.last_post_at %> ago by <b><%= link_to forum.most_recent_post.user.name, "/users/#{forum.most_recent_post.last_post_id}" %></b>
+              <% else %>
+                no posts
+              <% end %>
+            </td>
+            <% if (current_user != nil and current_user.is_admin?) %>
+              <td>
+                  <%= link_to "Show", forum_path(forum) %>
+                  <%= link_to "Edit", edit_forum_path(forum) %>
+                  <%= link_to "Destroy", forum, :method => :delete, data: { confirm: 'Are you sure you want to delete this forum?' } %>
+                <% end %>
+              </td>
+          </tr>
+      <% end %>
+    </table>
+
+<br>
+<% if (current_user != nil and current_user.is_admin?) %>
+  <p><%= link_to "New Forum", new_forum_path,:class => "btn btn-primary" %></p>
+<% end %>

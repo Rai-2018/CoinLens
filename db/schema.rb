@@ -10,35 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_29_060058) do
+ActiveRecord::Schema.define(version: 20180327091658) do
 
-  create_table "coins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "coins", force: :cascade do |t|
     t.string "name"
-    t.string "symbol"
-    t.string "web_id"
+    t.integer "amount"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_coins_on_user_id"
+  end
+
+  create_table "forums", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "coin_id"
-    t.float "amount"
+  create_table "posts", force: :cascade do |t|
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["coin_id"], name: "index_transactions_on_coin_id"
-    t.index ["user_id"], name: "index_transactions_on_user_id"
+    t.integer "topic_id"
+    t.integer "user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
+    t.integer "last_post_id"
+    t.datetime "last_post_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "forum_id"
+    t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "remember_digest"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "transactions", "coins"
-  add_foreign_key "transactions", "users"
 end

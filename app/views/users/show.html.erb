@@ -1,6 +1,44 @@
 <% provide(:title, @user.name) %>
-<h1>Dashboard</h1>
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--<link type="text/css" rel="stylesheet" href="stylesheet.css"/>-->
+		<title>User</title>
+	</head>
+	<body >
+		<h1>Dashboard</h1>
+		<div id="d_left">
+			<br>
+			<br>
+			<img src="https://thumbor.forbes.com/thumbor/960x0/smart/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1041896086%2F960x0.jpg%3Ffit%3Dscale"/>
+			<br>
+			<br>
+			<br>
+			<p id="d_font"><strong>A digital currency in which encryption techniques are used to regulate the generation of units of currency and verify the transfer of funds, operating independently of a central bank.</strong></p>
+		</div>
+		<div id="d_right">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<div id="d_rightDiv">
+				<span><%= link_to "Go to your portfolio", user_coins_path(@user) %></span>
+			</div>
+			<br>
+			<div id="d_rightDiv">
+				<span><%= link_to "Forums", forums_path %></span>
+			</div>
+			<br>
+		</div>
+	</body>
+</html>
+<!--<h1>Dashboard</h1>
 	<p id="navigate-dash">
-		<center><%= link_to "Go to your portfolio", user_transactions_path(@user) %></center>
+		<%= link_to "Go to your portfolio", user_coins_path(@user) %>
+		<br>
+		<%= link_to "Forums", forums_path %>
 	</p>
-
+</h1>
+-->
